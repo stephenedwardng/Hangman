@@ -34,9 +34,9 @@ public class Game {
                 ui.notInWord(guess);
             }
             count++;
-        } while (count < 6 || word.getCorrect() <= word.wordLength()-1);
+        } while (count < 6 || word.getCorrect() <= word.wordLength());
 
-        if (word.getCorrect() >= word.wordLength()-1) {
+        if (word.getCorrect() >= word.wordLength()) {
             ui.win();
         } else if (count == 6) {
             ui.endGame();
