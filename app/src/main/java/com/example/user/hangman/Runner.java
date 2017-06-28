@@ -7,7 +7,7 @@ package com.example.user.hangman;
 public class Runner {
 
     public static void main(String[] arg) throws InterruptedException{
-        Game game = new Game("Bananas");
+        Game game = new Game("elise");
         game.playGame();
     }
 }

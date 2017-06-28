@@ -1,5 +1,7 @@
 package com.example.user.hangman;
 
+import java.util.Scanner;
+
 /**
  * Created by user on 28/06/2017.
  */
@@ -7,6 +9,7 @@ package com.example.user.hangman;
 public class UserInterface {
 
     Word word;
+    char choice;
 
     public UserInterface(String setter) {
         word = new Word(setter);
@@ -17,7 +20,7 @@ public class UserInterface {
     }
 
     public void position(char letter) {
-        System.out.println(letter + " is in position ");
+        System.out.println(letter + " is in position " + word.isLetterInWord(letter));
     }
 
     public void askForGuess(){
@@ -28,5 +31,23 @@ public class UserInterface {
         word.display();
         System.out.println("Here is the number of letters in the word for your to guess: ");
         System.out.println(word.displayToViewer());
+    }
+
+    public char takeGuess() {
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine().toLowerCase();
+        return input.charAt(0);
+    }
+
+    public void notInWord(char letter) {
+        System.out.println("Sorry " + letter + " is not in word.");
+    }
+
+    public void endGame() {
+        System.out.println("You lose. The word is " + word.getWord());
+    }
+
+    public void win() {
+        System.out.println("You win. The word is " + word.getWord());
     }
 }

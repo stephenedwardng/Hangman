@@ -13,11 +13,16 @@ public class Word {
 
     String word;
     ArrayList<String> displayList;
+    private int correct;
 
     public Word(String word) {
         this.word = word;
         displayList = new ArrayList<>();
+        correct = 0;
+    }
 
+    public int getCorrect() {
+        return correct;
     }
 
     public void setWord() {
@@ -39,6 +44,7 @@ public class Word {
         while (index >= 0) {
             positions.add(index + 1);
             index = word.indexOf(guess, index + 1);
+            correct++;
         }
         return positions;
     }
@@ -57,6 +63,7 @@ public class Word {
         }
         return formattedWord.toString();
     }
+
 
 
 }
